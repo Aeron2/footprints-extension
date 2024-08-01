@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Footprints",
+  "description": "Footprints is a simple extension that allows you to track your browsing history and revisit websites you've visited before.",
+  "version": "1.0",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "scripting",
+    "tabs",
+    "notifications",
+    "background"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["tailwind.css"]
+    }
+  ]
+}
